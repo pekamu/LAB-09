@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <h1>Blog</h1>
+
+    <a class="botao" href="/cadastrar_post">Criar novo post</a>
+
+    <section class="posts">
+      <% if (posts.length === 0) { %>
+        <p class="vazio">Nenhum post cadastrado ainda.</p>
+      <% } else { %>
+        <% posts.forEach(function (post) { %>
+          <article class="post">
+            <h2><%= post.titulo %></h2>
+            <p class="resumo"><em><%= post.resumo %></em></p>
+            <p><%= post.conteudo %></p>
+            <small><%= post.criado_em %></small>
+          </article>
+        <% }); %>
+      <% } %>
+    </section>
+  </main>
+</body>
+</html>
